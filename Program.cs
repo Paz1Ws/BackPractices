@@ -1,456 +1,241 @@
-﻿namespace Proyectos_VS
+﻿using System.Numerics;
+
+namespace Proyectos_VS
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+            // 4/12/2023 (Sum of the pairs and odd positions)
             /*
-            // 6 Octubre:
+                int sumP = 0; int sumI = 0;
+                Random rdn = new Random();
+                int[] arr = new int[5];
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    arr[i] = rdn.Next(0, 11);
+                    Console.Write(arr[i] + "\t");
+                    sumP += i % 2 == 0 ? arr[i] : 0;
+                    sumI += (i + 1) % 2 == 0 ? arr[i] : 0;
 
-            string[] alumnos = { "Sophia", "Andrew", "Emma", "Logan" };
-            int[] notasSophia = { 90, 86, 87, 98, 100 };
-            int[] notasAndrew = { 92, 89, 81, 96, 90 };
-            int[] notasEmma = { 90, 85, 87, 98, 68 };
-            int[] notasLogan = { 90, 85, 87, 98, 96 };
-            double promSophia = (notasSophia[0] + notasSophia[1] + notasSophia[2] + notasSophia[3] + notasSophia[4]) / 5.0;
-            double promAndrew = (notasAndrew[0] + notasAndrew[1] + notasAndrew[2] + notasAndrew[3] + notasAndrew[4]) / 5.0;
-            double promEmma = (notasEmma[0] + notasEmma[1] + notasEmma[2] + notasEmma[3] + notasEmma[4]) / 5.0;
-            double promLogan = (notasLogan[0] + notasLogan[1] + notasLogan[2] + notasLogan[3] + notasLogan[4]) / 5.0;
-            double[] proms = { promSophia, promAndrew, promEmma, promLogan };
+                }
+                Console.WriteLine($"\nSum of odds positions: {sumP}\nSum of pairs positions: {sumI}");*/
+            // 7/12/2023 (Check if the number value of one phrase is prime)
+            /*
+            Dictionary<string, int> WordAndValue = new Dictionary<string, int>();
+            Console.Write("Words in Phrase?: ");
+            int winp = int.Parse(Console.ReadLine());
+            string[] wordsinphrase = new string[winp];
+            int sumTotalWords = 0;
+            Console.Write("Phrase: ");
+            string prh = Console.ReadLine();
+            // Function for remove special characters of prh
+            string cleanprh = Regex.Replace(prh, "[^a-zA-Z0-9 ]", "");
+            char[] prhToChars = cleanprh.ToCharArray();
+            //Loop for remove spaces and split "prh" in words
             int i = 0;
-            string cualif = null;
-            Console.WriteLine("Student\t\tGrade\n");
-
-            foreach (var alumno in alumnos)
+            for (int j = 0; j < prhToChars.Length; j++)
             {
-
-                if (i >= 0)
-                {
-                    if (proms[i] > 89.99)
-                    {
-                        cualif = "A";
-                    }
-                    else if (proms[i] <= 89.99 && proms[i] >= 80)
-                    {
-                        cualif = "B";
-                        
-                    }
-                    else if (proms[i] <= 79.99 && proms[i] >= 70)
-                    {
-                        cualif = "C";
-
-                    }
-                    else if (proms[i] <= 69.99 && proms[i] >= 60)
-                    {
-                        cualif = "D";
-
-                    }
-                    else
-                    {
-                        cualif = "F";
-                    }
-                    Console.WriteLine($"{alumno}:\t\t{proms[i]}\t {cualif}");
-
+                if (prhToChars[j] != ' ')
+                    wordsinphrase[i] += prhToChars[j];
+                else if (prhToChars[j] == ' ')
                     i++;
-                    
-                }
-
             }
-            */
-            /*
-            // 7 Octubre
-            string permission = "Admin|Manager";
-            if (permission.Contains("Admin"))
+
+            // For convert letters n numbers...
+            foreach (string word in wordsinphrase)
             {
-                if (level > 55)
+                int sumWords = 0;
+                for (i = 0; i <= word.Length - 1; i++)
                 {
-                    Console.WriteLine("Welcome, Super Admin user.");
-                }
-                else
-                {
-                    Console.WriteLine("Welcome, Admin user.");
-                }
-            }
-            else if (permission.Contains("Manager"))
-            {
-                if (level > 20)
-                {
-                    Console.WriteLine("Contact an Admin for access.");
-                }
-                else
-                {
-                    Console.WriteLine("You do not have sufficient privileges.");
-                }
-            }
-            else
-            {
-                Console.WriteLine("You do not have sufficient privileges.");
-
-            }
-
-            bool flag = true;
-            if (flag)
-                Console.WriteLine(flag);
-
-            
-            int[] numbers = { 4, 8, 15, 16, 23, 42 };
-            int total = 0;
-            bool found = false;
-
-            foreach (int number in numbers)
-            {
-                total += number;
-                if (number == 42)   found = true;
-                
-            }
-            if (found)  Console.WriteLine("Set contains 42");
-
-            Console.WriteLine($"Total: {total}");
-            
-
-            // SKU = Stock Keeping Unit. 
-            // SKU value format: <product #>-<2-letter color code>-<size code>
-            string sku = "03 WH S";
-
-            string[] product = sku.Split(' ');
-
-            string type = "";
-            string color = "";
-            string size = "";
-            switch (product[0])
-            {
-                case "01":
-                    type = "Sweat shirt";
-                    break;
-                case "02":
-                    type = "T-Shirt";
-                    break;
-                case "03":
-                    type = "Sweat pants";
-                    break;
-                default:
-                    type = "Other";
-                    break;
-            }
-            switch (product[1])
-            {
-                case "BL":
-                    color = "Black";
-                    break;
-                case "MN":
-                    color = "Maroon";
-                    break;
-                default:
-                    color = "White";
-                    break;
-            }
-            switch (product[2])
-            {
-                case "S":
-                    size = "Small";
-                    break;
-                case "M":
-                    size = "Medium";
-                    break;
-                case "L":
-                    size = "Large";
-                    break;
-                default:
-                    size = "One Size Fits All";
-                    break;
-            }
-            Console.WriteLine($"Product: {size} {color} {type}");
-            */
-            // 8 de octubre
-            /*
-            string fizzBuzz = " ";
-            for (int j = 0; j <= 100; j++)
-            {
-                if (j % 5 == 0 && j % 3 == 0)
-                    fizzBuzz = " - FizzBuzz";
-                else if (j % 3 == 0)
-                    fizzBuzz = " - Fizz";
-                else if (j % 5 == 0)
-                    fizzBuzz = " - Buzz";
-                Console.WriteLine(j + fizzBuzz);
-                fizzBuzz = " ";
-            }
-           
-
-            Random random = new Random();
-            int current = random.Next(1, 11);
-
-            do
-            {
-                current = random.Next(1, 11);
-
-                if (current >= 8) continue;
-
-            } while (current != 7);
-
-             
-            Random daño = new Random();
-            int dañoHeroe = 0;
-            int dañoMonstruo = 0;
-
-            int saludHeroe = 10;
-            int saludMonstruo = 10;
-
-            int it = 1;
-            do
-            {
-                dañoHeroe = daño.Next(1,11);
-                dañoMonstruo = daño.Next(1,11);
-
-                if (it % 2 == 0)
-                {
-                    saludHeroe -= dañoMonstruo;
-                    Console.WriteLine($"El héroe fue dañado con -{dañoMonstruo}, ahora su salud es de {saludHeroe}\n");
-                    
-                }
-                else 
-                {
-                    saludMonstruo -= dañoHeroe;
-                    Console.WriteLine($"El monstruo fue dañado con -{dañoHeroe}, ahora su salud es de {saludMonstruo}\n");
-                }
-                it++;
-
-            }
-            while (saludHeroe > 0 && saludMonstruo > 0);
-            if (saludHeroe > 0)
-                Console.WriteLine("El heroe ha ganado!");
-            else if (saludMonstruo > 0)
-                Console.WriteLine("El monstruo ha ganado!");
-          
-            //10 de octubre
-            decimal myDecimal = 3.14m;
-            Console.WriteLine($"decimal: {myDecimal}");
-
-            int myInt = (int)myDecimal;
-            Console.WriteLine($"int: {myInt}");
-
-            string first = "5";
-            string second = "7";
-            int sum = int.Parse(first) + int.Parse(second);
-            Console.WriteLine(sum);
-            
-            // 12 de octubre
-
-            SimuladorTragamonedas();
-
-            static void SimuladorTragamonedas()
-            {
-                int opc;
-                do
-                {
-                    Console.WriteLine("Simulador de Tragamonedas.");
-                    Console.WriteLine("1) Jugar");
-                    Console.WriteLine("2) Salir");
-                    Console.Write("Elija una opción: ");
-                    opc = int.Parse(Console.ReadLine());
-
-                    switch (opc)
-                    {
-                        case 1:
-                            JugarTragamonedas();
-                            break;
-                        case 2:
-                            Console.WriteLine("Salió del Tragamonedas.");
-                            break;
-                        default:
-                            Console.WriteLine("Opción Irreconocida.");
-                            break;
-                    }
-                } while (opc != 2);
-            }
-
-            static void JugarTragamonedas()
-            {
-                Random ran = new Random();
-                int rn1 = ran.Next(1, 4);
-                int rn2 = ran.Next(1, 4);
-                int rn3 = ran.Next(1, 4);
-                int[] listaAle = { rn1, rn2, rn3 };
-                int numeralSum = 0;
-                int porcentSum = 0;
-                int dolarSum = 0;
-                string cadenaCharRandom = "";
-
-                foreach (int valor in listaAle)
-                {
-                    char valorCharRandom;
-                    if (valor == 1)
-                    {
-                        numeralSum++;
-                        valorCharRandom = '#';
-                    }
-                    else if (valor == 2)
-                    {
-                        porcentSum++;
-                        valorCharRandom = '%';
-                    }
+                    if (!Char.IsDigit(word[i]))
+                        sumWords += Char.ToUpperInvariant(word[i]) - 'A' + 1;
                     else
-                    {
-                        dolarSum++;
-                        valorCharRandom = '$';
-                    }
-                    cadenaCharRandom += valorCharRandom;
+                        sumWords += Int32.Parse(word[i].ToString());
                 }
-
-                string premio;
-                if (numeralSum == 2)
-                    premio = "Ha ganado $50, #";
-                else if (porcentSum == 2)
-                    premio = "Ha ganado $50, %";
-                else if (dolarSum == 2)
-                    premio = "Ha ganado $50, $";
-                else if (numeralSum == 3)
-                    premio = "Ha ganado $100, ###";
-                else if (porcentSum == 3)
-                    premio = "Ha ganado $100, %%%";
-                else if (dolarSum == 3)
-                    premio = "Ha ganado $100, $$$";
-                else
-                    premio = "Sin premio, juegue de nuevo.";
-
-                Console.WriteLine($"Los símbolos generados son: {cadenaCharRandom}");
-                Console.WriteLine(premio);
-            }
-            // 13 de octubre
-            string[] pallets = { "B14", "A12", "B12", "A13" };
-
-            Console.WriteLine("Sorted...");
-            Array.Sort(pallets);
-            foreach (var pallet in pallets)
-            {
-                Console.WriteLine($"-- {pallet}");
+                Console.WriteLine($"The word {word} is equal to: {sumWords} ");
+                WordAndValue.Add(word, sumWords);
+                sumTotalWords += sumWords;
             }
 
-            Console.WriteLine("");
-            Console.WriteLine("Reversed...");
-            Array.Reverse(pallets);
-            foreach (var pallet in pallets)
+            bool isPrime = IsPrime(sumTotalWords);
+            bool almostIsPrime = false;
+
+            if (!isPrime)
             {
-                Console.WriteLine($"-- {pallet}");
-            }
-            
-           
-            string[] pallets = {"B14", "A11", "B12", "A13" };
-            
-            Array.Sort(pallets);
-            foreach (string pallet in pallets)
-            {
-                Console.WriteLine(pallet);
-            }
-
-            Array.Clear(pallets,2,2);
-            Console.WriteLine($"Clearing 2 ... count: {pallets.Length}");
-            foreach (var pallet in pallets)
-            {
-                Console.WriteLine($"-- {pallet}");
-            }
-            string str1 = "So, let's go";
-            char[] chars = str1.ToCharArray();
-            Console.Write(chars);
-
-            Console.WriteLine("\n");
-
-            Array.Reverse(chars);
-
-            Console.Write(chars);
-
-            Console.WriteLine("\n");
-
-            string space = String.Join(" ", chars);
-            Console.WriteLine(space);
-
-            string[] spli = space.Split("e");
-            foreach (string s in spli)
-            {
-                Console.Write(s);
-            }
-            
-            
-            string result = null;
-            string str = "The quick brown fox jumps over the lazy dog";
-            string[] arrayStr = str.Split(' ');
-
-            foreach (string minArrayStr in arrayStr)
-            {
-                string[] arrayMins = { minArrayStr };
-                foreach (string arrayMins2 in arrayMins)
+                foreach (KeyValuePair<string, int> word in WordAndValue)
                 {
-                    string[] palabras = { arrayMins2 };
-                    
-                    foreach (string arrayMins3 in palabras)
+                    int newSum = sumTotalWords - word.Value;
+                    if (IsPrime(newSum))
                     {
-                        char[] chars = arrayMins3.ToCharArray();
-                        Array.Reverse(chars);
-                        foreach(char c in chars)
-
-                            Console.Write(c + " ");
+                        Console.WriteLine($"Removing {word.Key} makes the phrase Prime with a sum of {newSum}");
+                        almostIsPrime = true;
                     }
                 }
+            }
+
+            if (isPrime)
+                Console.WriteLine($"The phrase is Prime!!!, sum total of words: {sumTotalWords}.");
+            else if (almostIsPrime)
+                Console.WriteLine($"The phrase is almost Prime.");
+            else
+                Console.WriteLine($"The phrase is not Prime, sum total of words: {sumTotalWords}.");
+        }
+
+        static bool IsPrime(int number)
+        {
+            if (number <= 1) return false;
+            if (number == 2) return true;
+            if (number % 2 == 0) return false;
+
+            for (int i = 3; i <= Math.Sqrt(number); i += 2)
+            {
+                if (number % i == 0) return false;
+            }
+        }
+
+            return true;
+            */
+            // 9/12/2023 (Encoding Nico Cipher)
+
+            /*
+            string message = Console.ReadLine();
+            string key = Console.ReadLine();
+            string encodedMessage = NicoCipher(message, key);
+            Console.WriteLine("Encoded Message: " + encodedMessage);
+
+
+
+            static string NicoCipher(string message, string key)
+            {
+                var order = CreateOrder(key);
+                var dict = new Dictionary<int, string>();
+                var sortedDict = new Dictionary<int, string>();
+                var counter = 0;
+                var finalString = "";
+
+                foreach (var number in order)
+                    dict.Add(number, "");
+
+                for (int i = 0; i < message.Length; i++)
+                {
+                    if (counter == order.Count)
+                        counter = 0;
+
+                    dict[order[counter]] += message[i];
+                    counter++;
+                }
+
+                for (int i = 0; i < dict.Count; i++)
+                {
+                    while (dict[order[i]].Length < dict[order[0]].Length)
+                        dict[order[i]] += " ";
+                }
+
+                foreach (var val in dict.OrderBy(x => x.Key))
+                    sortedDict.Add(val.Key, val.Value);
+
+                for (int i = 0; i < dict[order[0]].Length; i++)
+                {
+                    foreach (var element in sortedDict)
+                        finalString += element.Value[i];
+                }
+                return finalString;
+            }
+
+            static List<int> CreateOrder(string key)
+            {
+                var order = new List<int>();
+                int orderAsInt;
+
+                if (int.TryParse(key, out orderAsInt))
+                {
+                    for (int i = 0; i < key.Length; i++)
+                        order.Add((int)char.GetNumericValue(key[i]));
+                }
+                else
+                {
+                    var sorted = key.ToCharArray().OrderBy(c => c).ToArray();
+
+                    foreach (var sign in key)
+                    {
+                        if (!order.Contains(Array.IndexOf(sorted, sign) + 1))
+                            order.Add(Array.IndexOf(sorted, sign) + 1);
+                        else
+                            order.Add(Array.IndexOf(sorted, sign) + 2);
+                    }
+                }
+                return order;
+            
             }
             */
-            // 15 de octubre
-            // Métodos void y tipos de valores y por referencia.
-            // 21 de octubre
+            // 11/12/2023
             /*
-            Random random = new Random();
+            // Solution 1:
+            Console.Write("Number: ");
+            int numdiv = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Would you like to play? (Y/N)");
-            char opc = char.Parse(Console.ReadLine());
-            bool firstPlay = opc == 'Y' ? true : false;
+            Console.WriteLine($"The smallest number divisible since 1 to {numdiv} is {SmallestNumberDivisible(numdiv)}");
 
-            static bool ShouldPlay(bool firstPlay, char opc)
+
+            static string SmallestNumberDivisible(int n)
             {
-                opc = char.Parse(Console.ReadLine());
-                firstPlay = opc == 'Y' ? true : false;
-                if (firstPlay) return true;
-                else return false; 
-                
-            }
-
-            if (ShouldPlay(firstPlay, opc))
-            {
-                PlayGame();
-            }
-
-            void PlayGame()
-            {
-                var play = true;
-
-                while (play)
+                long number = 1;
+                while (true)
                 {
-                    int target = random.Next(1,6);
-                    int roll = random.Next(1,6);
-                    static string WinOrLose(int target, int roll)
+                    bool divisible = true;
+                    for (int i = 1; i <= n; i++)
                     {
-                        string result = null;
-                        if (roll > target)
-                             result = "Great, you is the winner.";
-                        else
-                             result = "Pitty, you is the looser.";
-                        return result;
-
+                        if (number % i != 0)
+                        {
+                            divisible = false;
+                            break;
+                        }
                     }
-                    Console.WriteLine($"Roll a number greater than {target} to win!");
-                    Console.WriteLine($"You rolled a {roll}");
-                    Console.WriteLine(WinOrLose(target, roll));
-                    Console.WriteLine("\nPlay again? (Y/N)");
+                    if (divisible)
+                    {
+                        return number.ToString();
+                    }
+                    number++;
+                }
+            }
+            // Solution 2:
+            Console.WriteLine(Smallest(5));
+            static string Smallest(int n)
+            {
+                BigInteger lcm = 1, prev;
+                for (int i = 1; i <= n; i++)
+                {
+                    prev = lcm;
+                    while (lcm % i != 0) lcm += prev;
+                }
+                return lcm.ToString();
+            }
 
-                    play = ShouldPlay(firstPlay, opc);
+            */
 
-                    */
-            
-                    // 4 de noviembre
-                    var apple = new { Item = "apples", Price = 1.35 };
-                    var onSale = apple with { Price = 1.30 } with { Item = "banana" };
-                    Console.WriteLine(apple);
+            // 11/12/2023
 
-
+            Console.WriteLine("Number?: ");
+            BigInteger n = BigInteger.Parse(Console.ReadLine());
+            BigInteger CopyN = n;
+            //int fact = n;
+            for (BigInteger i = n; i <= n; i--)
+            {
+                if (i == 2) { break; }
+                n *= i - 1;
+            }
+            string nStr = n.ToString();
+            int CountZeros = 0;
+            for (int i = nStr.Length - 1; i >= 0; i--)
+            {
+                if (nStr[i] == '0')
+                    CountZeros++;
+                else
+                    break;
+            }
+            Console.WriteLine($"The number {CopyN} have {CountZeros} at its end.");
         }
-    }
 
+    }
 }
