@@ -1,4 +1,6 @@
-﻿namespace Proyectos_VS
+﻿using ProjectsVS;
+
+namespace Proyectos_VS
 {
     internal class Program
     {
@@ -372,6 +374,18 @@
             public string Categoria { get; set; }
         }
             */
+
+            
+            Tree tree = new Tree(5);
+            tree.Add(3);
+            tree.Add(8);
+            tree.Add(1);
+            tree.Add(34);
+            tree.Add(4);
+            tree.Add(7);
+            tree.Add(9);
+
+            tree.InOrderTraversal(tree.root);
 
         }
     }
