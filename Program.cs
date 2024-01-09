@@ -1,4 +1,5 @@
-﻿using ProjectsVS;
+﻿using System.Reflection.Metadata.Ecma335;
+using System.Text.RegularExpressions;
 
 namespace Proyectos_VS
 {
@@ -373,20 +374,80 @@ namespace Proyectos_VS
             public string Nombre { get; set; }
             public string Categoria { get; set; }
         }
-            */
-
             
+        //05/01/2024
+        // Tree Example - InOrderTraversal
             Tree tree = new Tree(5);
             tree.Add(3);
             tree.Add(8);
             tree.Add(1);
-            tree.Add(34);
+            tree.Add(4);
             tree.Add(4);
             tree.Add(7);
             tree.Add(9);
 
             tree.InOrderTraversal(tree.root);
+           
+            // 06/01/2024
+            int mult = 0;
+            string total = null;
+            Console.Write("Text: ");
+            string text = Console.ReadLine();
+            for (int i = 0; i < text.Length; i++)
+            {
+                try
+                {
+                    mult = int.Parse(text[i].ToString());
+                    total += add(text[i - 1], mult);
 
+                }
+                catch
+                {
+                    continue;
+                }
+            }
+            Console.WriteLine($"Text convert: {total}.");
+        }
+        static string add(char c, int n)
+        {
+            string parcial = null;
+            for (int i = 0; i < n; i++)
+            {
+                parcial += c;
+            }
+            return parcial;
+             
+            // 08/01/2024
+            bool verified1 = false;
+            bool verified2 = false;
+            bool verified3 = false;
+            bool verified4 = false;
+            bool verified5 = false;
+            bool verified6 = false;
+            string sucess = "Verification sucessful, permitted password.";
+            int v5 = 0;
+            Console.WriteLine("Password: ");
+            string pass = Console.ReadLine();
+
+            Console.WriteLine("Validating password...");
+            await Task.Delay(5000);
+
+            verified1 = pass.Length >= 6 && pass.Length <= 24 ? true : false;
+            verified2 = verified1 && pass.Any(char.IsUpper) ? true : false;
+            verified3 = verified2 && pass.Any(char.IsLower) ? true : false;
+            verified4 = verified2 && pass.Any(char.IsDigit) ? true : false;
+            for (int i = 0; i < pass.Length; i++)
+            {
+                if (i == 0)
+                    continue;
+                else
+                    v5 = pass[i - 1] == pass[i] ? v5++ : v5;
+            }
+            verified5 = verified4 && (v5 == 1 || v5 == 0) ? true : false;
+
+            sucess = verified5 ? "Verification sucessful, permitted password." : "Verification not completed, wrong password, try again.";
+            Console.WriteLine(sucess);
+            */
         }
     }
 }
