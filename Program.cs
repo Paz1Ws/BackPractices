@@ -1,7 +1,4 @@
-﻿using System.Reflection.Metadata.Ecma335;
-using System.Text.RegularExpressions;
-
-namespace Proyectos_VS
+﻿namespace Proyectos_VS
 {
     internal class Program
     {
@@ -447,7 +444,89 @@ namespace Proyectos_VS
 
             sucess = verified5 ? "Verification sucessful, permitted password." : "Verification not completed, wrong password, try again.";
             Console.WriteLine(sucess);
+            // 11/01/2024
+            // Thread Exercise:
+
+            Task<int> task1 = Task.Run(() => Sleep(11000));
+            Task Continuation1 = task1.ContinueWith((task) =>
+            {
+                Console.WriteLine($"Terminé de dormir. Dormí por {task1.Result} segundos.");
+            });
+            Task<int> task2 = Task.Run(() => Sleep(7000));
+            Task Continuation2 = task2.ContinueWith((task) =>
+            {
+                Console.WriteLine($"Terminé de dormir. Dormí por {task2.Result} segundos.");
+            });
+            Task<int> task3 = Task.Run(() => Sleep(4000));
+            Task Continuation3 = task3.ContinueWith((task) =>
+            {
+                Console.WriteLine($"Terminé de dormir. Dormí por {task3.Result} segundos.");
+            });
+
+            Task.WaitAll(task1, task2, task3);
+            Console.ReadKey();
+            Console.WriteLine("GoodBye.");
+        }
+        static int Sleep(int miliseconds)
+        {
+            Console.WriteLine($"Durmiendo {miliseconds / 1000} segundos...");
+            Thread.Sleep(miliseconds);
+            return miliseconds / 1000;
+        }
+            
+            // 12/01/2024
+            // What web response first?
+            List<string> sites = new List<string> { "http://www.msi.com", "http://www.xiaomi.com", "http://www.gmail.com" };
+            List<Task<string>> tasks = new List<Task<string>>();
+            foreach (string site in sites)
+            {
+                tasks.Add(DownloadContent(site));
+            }
+            int index = Task.WaitAny(tasks.ToArray());
+            Task<string> completedTask = tasks.ToArray()[index];
+            Console.WriteLine($"El sitio que respondió primero fue: {completedTask.Result} ");
+            Console.Read();
+        }
+
+
+        public static async Task<string> DownloadContent(string site)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                string result = await client.GetStringAsync(site);
+                return site;
+            }
+        }
+            // Delegates Example: 
+            MathCalculation calculateAll = new MathCalculation(AddNumbers);
+            calculateAll += SubtractNumbers;
+            calculateAll += MultiplyNumbers;
+            calculateAll += DivideNumbers;
+
+            calculateAll(4, 2);
+            Console.Read();
+        }
+        delegate void MathCalculation(float value1, float value2);
+
+
+        public static void AddNumbers(float value1, float value2)
+        {
+            Console.WriteLine(value1 + value2);
+        }
+        public static void SubtractNumbers(float value1, float value2)
+        {
+            Console.WriteLine(value2 - value1);
+        }
+        public static void MultiplyNumbers(float value1, float value2)
+        {
+            Console.WriteLine(value1 * value2);
+        }
+        public static void DivideNumbers(float value1, float value2)
+        {
+            Console.WriteLine(value1 / value2);
+        }
+
             */
+
         }
     }
-}
