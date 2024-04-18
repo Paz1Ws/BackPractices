@@ -1,0 +1,17 @@
+C:\Users\hp\Desktop\Prácticas\ProjectsVS\ProjectsVS\bin\Debug\net8.0\ProjectsVS.exe
+C:\Users\hp\Desktop\Prácticas\ProjectsVS\ProjectsVS\bin\Debug\net8.0\ProjectsVS.deps.json
+C:\Users\hp\Desktop\Prácticas\ProjectsVS\ProjectsVS\bin\Debug\net8.0\ProjectsVS.runtimeconfig.json
+C:\Users\hp\Desktop\Prácticas\ProjectsVS\ProjectsVS\bin\Debug\net8.0\ProjectsVS.dll
+C:\Users\hp\Desktop\Prácticas\ProjectsVS\ProjectsVS\bin\Debug\net8.0\ProjectsVS.pdb
+C:\Users\hp\Desktop\Prácticas\ProjectsVS\ProjectsVS\obj\Debug\net8.0\ProjectsVS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\Desktop\Prácticas\ProjectsVS\ProjectsVS\obj\Debug\net8.0\ProjectsVS.AssemblyInfoInputs.cache
+C:\Users\hp\Desktop\Prácticas\ProjectsVS\ProjectsVS\obj\Debug\net8.0\ProjectsVS.AssemblyInfo.cs
+C:\Users\hp\Desktop\Prácticas\ProjectsVS\ProjectsVS\obj\Debug\net8.0\ProjectsVS.csproj.CoreCompileInputs.cache
+C:\Users\hp\Desktop\Prácticas\ProjectsVS\ProjectsVS\obj\Debug\net8.0\ProjectsVS.dll
+C:\Users\hp\Desktop\Prácticas\ProjectsVS\ProjectsVS\obj\Debug\net8.0\refint\ProjectsVS.dll
+C:\Users\hp\Desktop\Prácticas\ProjectsVS\ProjectsVS\obj\Debug\net8.0\ProjectsVS.pdb
+C:\Users\hp\Desktop\Prácticas\ProjectsVS\ProjectsVS\obj\Debug\net8.0\ProjectsVS.genruntimeconfig.cache
+C:\Users\hp\Desktop\Prácticas\ProjectsVS\ProjectsVS\obj\Debug\net8.0\ref\ProjectsVS.dll
+C:\Users\hp\Desktop\Prácticas\ProjectsVS\ProjectsVS\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\hp\Desktop\Prácticas\ProjectsVS\ProjectsVS\obj\Debug\net8.0\ProjectsVS.csproj.AssemblyReference.cache
+C:\Users\hp\Desktop\Prácticas\ProjectsVS\ProjectsVS\obj\Debug\net8.0\ProjectsVS.csproj.CopyComplete
